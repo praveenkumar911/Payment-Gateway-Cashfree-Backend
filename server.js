@@ -27,7 +27,7 @@ app.post('/initiate_payment', async (req, res) => {
         customer_email: req.body.customer_email // Assuming email is also provided
       },
       order_meta: {
-        return_url: `http://localhost:3000/payment_success?order_id=${req.body.order_id}` // Local URL for testing
+        return_url: `https://payment-gateway-cashfree-frontend.vercel.app/payment_success?order_id=${req.body.order_id}` // Local URL for testing
       }
     };
 
@@ -37,7 +37,7 @@ app.post('/initiate_payment', async (req, res) => {
 
     res.json({
       payment_session_id: response.data.payment_session_id, // Return session ID for frontend
-      payment_url: `http://localhost:3000/payment_page?payment_session_id=${response.data.payment_session_id}` // Local frontend payment page URL
+      payment_url: `https://payment-gateway-cashfree-frontend.vercel.app/payment_page?payment_session_id=${response.data.payment_session_id}` // Local frontend payment page URL
     });
   } catch (error) {
     console.error('Error:', error.response ? error.response.data.message : error.message);
