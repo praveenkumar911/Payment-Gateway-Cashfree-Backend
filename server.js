@@ -46,8 +46,11 @@ app.post('/initiate_payment', async (req, res) => {
 });
 
 // Add new route to welcome users to the gateway
-app.get('/welcome', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hi, welcome to the gateway');
+});
+app.get('/ok', (req, res) => {
+  res.send('ok');
 });
 
 app.listen(port, () => {
